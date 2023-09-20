@@ -9,8 +9,7 @@ function contador(){
     } else {
         segundos = segundos -1;
     }
-
-
+document.getElementById('input').innerHTML = minutos + ' : ' + segundos;
 }
 setInterval(()=>contador(), 1000);
 
