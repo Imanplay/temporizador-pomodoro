@@ -1,0 +1,36 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background-color: gray;
+    padding: 0;
+}
+
+div {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px auto;
+    padding: 3%
+}
+
+h1 {
+    color: rgb(16, 102, 102);
+    font-size: 85px;
+    text-align: center;
+
+}
+
+h2 {
+    color: rgb(16, 102, 102);
+    font-size: 70px;
+    text-align: center;
+    font-family: sans-serif;
+	color: white;
+	font-weight: bold;
+}
