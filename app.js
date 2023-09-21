@@ -1,23 +1,23 @@
 let minutos = 25;
 let segundos = 0;
-let intervalo  ;
+let intervalo;
 
-function contador(){
-     if (segundos === 0 && minutos > 0){
-        minutos = minutos -1;
+function contador() {
+    if (segundos === 0 && minutos > 0) {
+        minutos = minutos - 1;
         segundos = 59;
     } else {
-        segundos = segundos -1;
+        segundos = segundos - 1;
     }
-document.getElementById('input').innerHTML = minutos + ' : ' + segundos;
+    document.getElementById('input').innerHTML = minutos + ' : ' + segundos;
 }
-function iniciarContador(){
-intervalo = setInterval(()=>contador(), 1000);
+function iniciarContador() {
+    intervalo = setInterval(() => contador(), 1000);
 
 }
 
-function pausar(){
+function pausar() {
     clearInterval(intervalo);
-     intervalo= null;
+    intervalo = null;
 }
 iniciarContador()
