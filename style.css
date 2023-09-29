@@ -24,15 +24,18 @@ h1 {
     color: white;
     font-size: 85px;
     text-align: center;
+    font-style: slice;
+    font-family: cursive;
 }
 
 h2 {
     color: white;
-    font-size: 65px;
+    font-size: 63px;
     text-align: center;
-    font-family: sans-serif;
     color: white;
     font-weight: bold;
+    font-style: slice;
+    font-family: cursive;
 }
 
 .contador2 {
@@ -49,14 +52,11 @@ h2 {
     color: white;
     font-size: 35px;
     margin: 0 25px 0 25px;
+    font-style: slice;
+    font-family: cursive;
 }
 
 #botonStart:disabled, #botonStop:disabled {
 opacity: 0.5;
 
-}
-
-#botonStart:hover, #botonStop:hover {
-color: black ;
-background-color: white;
 }
