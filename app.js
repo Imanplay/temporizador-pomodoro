@@ -5,6 +5,7 @@ let isDescanso = false;
 const botonStart = document.getElementById('botonStart');
 const botonPausa = document.getElementById('botonStop')
 const span = document.getElementById('input')
+
 function contador() {
     if (segundos === 0 && minutos > 0) {
         minutos = minutos - 1;
@@ -19,14 +20,18 @@ function contador() {
         segundos = 0;
         iniciarContador();
     }
-   
-    document.getElementById('input').innerHTML = minutos.toString().padStart(2, '0') + ' : ' + segundos.toString().padStart(2, );
+    mostrarTimer();
+   guardar(true); 
+}
+function mostrarTimer(){
+    span.innerHTML = minutos.toString().padStart(2, '0') + ' : ' + segundos.toString().padStart(2, );
 }
 
 function iniciarContador() {
     intervalo = setInterval(() => contador(), 1000);
     botonStart.disabled = true;
     botonPausa.disabled = false;
+    guardar(true);
 }
 
 new function descansar (){
@@ -40,6 +45,36 @@ function pausar() {
     intervalo = null;
     botonPausa.disabled = true;
     botonStart.disabled = false;
+    guardar(false);
     
 }
-iniciarContador();
+cargar();
+
+function guardar(active)
+{
+const estado = {
+    minutes:minutos,
+    seconds:segundos,
+    active
+
+}
+localStorage.setItem('estado', JSON.stringify(estado));
+
+}
+function cargar(){
+    const estado = JSON.parse(localStorage.getItem('estado'));
+    if (estado === null){
+        minutos = 25;
+        segundos = 0;
+    }else{
+    minutos = estado.minutes
+    segundos = estado.seconds
+    } 
+    if (estado.active){
+        iniciarContador();
+        botonStart.disabled = true;
+    } else{
+        botonPausa.disabled = true;
+    }
+    mostrarTimer();
+}
