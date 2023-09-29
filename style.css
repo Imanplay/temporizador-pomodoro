@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    background-image: url(fondo_1.png);
     background-color: gray;
     padding: 0;
 }
@@ -20,14 +21,13 @@ body {
 }
 
 h1 {
-    color: rgb(16, 102, 102);
+    color: white;
     font-size: 85px;
     text-align: center;
-
 }
 
 h2 {
-    color: rgb(16, 102, 102);
+    color: white;
     font-size: 65px;
     text-align: center;
     font-family: sans-serif;
@@ -44,16 +44,19 @@ h2 {
     justify-content: center;
 }
 
-#boton {
-    background-color: rgb(16, 102, 102);
+#botonStart, #botonStop {
+    background-color: black;
     color: white;
     font-size: 35px;
     margin: 0 25px 0 25px;
 }
 
-#boton2 {
-    background-color: rgb(16, 102, 102);
-    color: white;
-    font-size: 35px;
-    margin: 0 25px 0 25px;
+#botonStart:disabled, #botonStop:disabled {
+opacity: 0.5;
+
+}
+
+#botonStart:hover, #botonStop:hover {
+color: black ;
+background-color: white;
 }
