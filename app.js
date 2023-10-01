@@ -5,6 +5,7 @@ let isDescanso = false;
 const botonStart = document.getElementById('botonStart');
 const botonPausa = document.getElementById('botonStop')
 const span = document.getElementById('input')
+const botonRestart = document.getElementById('botonRestart');
 
 function contador() {
     if (segundos === 0 && minutos > 0) {
@@ -24,7 +25,7 @@ function contador() {
    guardar(true); 
 }
 function mostrarTimer(){
-    span.innerHTML = minutos.toString().padStart(2, '0') + ' : ' + segundos.toString().padStart(2, );
+    span.innerHTML = minutos.toString().padStart(2, '0') + ' : ' + segundos.toString().padStart(2, '0');
 }
 
 function iniciarContador() {
@@ -34,10 +35,11 @@ function iniciarContador() {
     guardar(true);
 }
 
-new function descansar (){
+function descansar (){
     if (minutos && segundos === 0){
         return (isDescanso);
     }
+    //document.getElementById('descansando').innerHTML = "Tiempo de descansar";
 }
 
 function pausar() {
@@ -77,4 +79,11 @@ function cargar(){
         botonPausa.disabled = true;
     }
     mostrarTimer();
+}
+
+function reiniciar(){
+    minutos = 25;
+    segundos = 0;
+    
+    
 }
