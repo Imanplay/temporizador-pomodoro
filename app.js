@@ -84,6 +84,6 @@ function cargar(){
 function reiniciar(){
     minutos = 25;
     segundos = 0;
-    
+
     
 }
