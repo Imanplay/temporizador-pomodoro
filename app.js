@@ -14,7 +14,7 @@ function contador() {
     } else {
         segundos = segundos - 1;
     }
-    if (minutos === 0 && segundos === 0){
+    if (minutos === 0 && segundos === 0) {
         pausar();
         isDescanso = !isDescanso;
         minutos = isDescanso ? 5 : 25;
@@ -22,9 +22,9 @@ function contador() {
         iniciarContador();
     }
     mostrarTimer();
-   guardar(true); 
+    guardar(true);
 }
-function mostrarTimer(){
+function mostrarTimer() {
     span.innerHTML = minutos.toString().padStart(2, '0') + ' : ' + segundos.toString().padStart(2, '0');
 }
 
@@ -35,11 +35,13 @@ function iniciarContador() {
     guardar(true);
 }
 
-function descansar (){
-    if (minutos && segundos === 0){
+function descansar() {
+    document.getElementById('descansando').innerHTML = "Tiempo de descansar";
+    botonRestart.disabled = true;
+    if (minutos && segundos === 0) {
         return (isDescanso);
     }
-    //document.getElementById('descansando').innerHTML = "Tiempo de descansar";
+   
 }
 
 function pausar() {
@@ -48,42 +50,42 @@ function pausar() {
     botonPausa.disabled = true;
     botonStart.disabled = false;
     guardar(false);
-    
+
 }
 cargar();
 
-function guardar(active)
-{
-const estado = {
-    minutes:minutos,
-    seconds:segundos,
-    active
+function guardar(active) {
+    const estado = {
+        minutes: minutos,
+        seconds: segundos,
+        active
+
+    }
+    localStorage.setItem('estado', JSON.stringify(estado));
 
 }
-localStorage.setItem('estado', JSON.stringify(estado));
-
-}
-function cargar(){
+function cargar() {
     const estado = JSON.parse(localStorage.getItem('estado'));
-    if (estado === null){
+    if (estado === null) {
         minutos = 25;
         segundos = 0;
-    }else{
-    minutos = estado.minutes
-    segundos = estado.seconds
-    } 
-    if (estado.active){
+    } else {
+        minutos = estado.minutes
+        segundos = estado.seconds
+    }
+    if (estado.active) {
         iniciarContador();
         botonStart.disabled = true;
-    } else{
+    } else {
         botonPausa.disabled = true;
     }
     mostrarTimer();
 }
 
-function reiniciar(){
+function reiniciar() {
+    clearInterval(intervalo);
     minutos = 25;
     segundos = 0;
-
-    
+    botonStart.disabled = false;
+    mostrarTimer();
 }
