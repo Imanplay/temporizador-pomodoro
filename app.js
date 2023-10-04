@@ -38,6 +38,7 @@ function iniciarContador() {
 function descansar() {
     document.getElementById('descansando').innerHTML = "Tiempo de descansar";
     botonRestart.disabled = true;
+    botonPausa.disabled = true;
     if (minutos && segundos === 0) {
         return (isDescanso);
     }
